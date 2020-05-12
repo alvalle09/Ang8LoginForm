@@ -22,26 +22,13 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
-    // one approach to set values on form...not recommended, pre-populated fields are overwritten.
-    // this.signupForm.setValue({
-    //   userData: {
-    //     username: suggestedName,
-    //     email: ''
-    //   },
-    //   secret: 'pet',
-    //   questionAnswer: '',
-    //   gender: 'male'
-    // });
+
     this.signupForm.form.patchValue({
       userData: {
         username: suggestedName
       }
     });
   }
-
-  // onSubmit(form: NgForm) {
-  //   console.log(form);
-  // }
 
   onSubmit() {
     //console.log(this.signupForm);
