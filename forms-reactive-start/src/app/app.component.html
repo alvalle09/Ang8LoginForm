@@ -29,10 +29,7 @@
               class="form-control"
             />
             <span
-              *ngIf="
-                !signupForm.get('userData.email').valid &&
-                signupForm.get('userData.email').touched
-              "
+              *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched"
               class="help-block"
               >Please enter a valid email.
             </span>
@@ -44,6 +41,18 @@
               gender
             }}
           </label>
+        </div>
+        <div formArrayName="hobbies">
+          <h4>Your Hobbies</h4>
+          <button 
+            class="btn btn-default" 
+            type="button"
+            (click)="onAddHobby()">Add Hobby</button>
+            <div 
+              class="form-group"
+              *ngFor="let hobbyControl of signupForm.get('hobbies').controls; let i = index"  >
+              <input type="text" class="form-control" [formControlName]="i">
+            </div>
         </div>
         <span *ngIf="!signupForm.valid && signupForm.touched" class="help-block"
           >Please enter valid data.
