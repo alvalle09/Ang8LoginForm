@@ -10,7 +10,7 @@ import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@ang
 export class AppComponent implements OnInit{
   genders = ['male', 'female'];
   signupForm: FormGroup;
-  forbiddenUsernames = ['notgood', 'wrong'];
+  forbiddenUsernames = ['dontuse', 'wrong'];
 
   constructor(private formBuilder: FormBuilder) {}
   
@@ -36,11 +36,11 @@ export class AppComponent implements OnInit{
   }
 
   forbiddenNames(control: FormControl): {[$: string]: boolean} {
-    if (this.forbiddenUsernames.indexOf(control.value)) {
+    // if indexOf returns -1, that means the value was found in the array, therefore it's invalid name
+    if (this.forbiddenUsernames.indexOf(control.value) !== -1) {
       return {'nameIsForbidden': true};
     }
-    else {
-      return null;
+    return null;
     }
       
   }
