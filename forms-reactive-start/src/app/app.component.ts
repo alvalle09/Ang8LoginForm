@@ -10,7 +10,7 @@ import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@ang
 export class AppComponent implements OnInit{
   genders = ['male', 'female'];
   signupForm: FormGroup;
-  forbiddenUsernames = ['dontuse', 'wrong'];
+  forbiddenUsernames = ['badname', 'wrong'];
 
   constructor(private formBuilder: FormBuilder) {}
   
@@ -46,7 +46,5 @@ export class AppComponent implements OnInit{
   }
 
 
-
-}
 
 
